@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fair Trade Coffee</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">Fair Trade Coffee</h1>
+        <hr>
+        <p style="text-align: center;">Prove the authenticity of coffee using the Ethereum blockchain.</p>
+        <br>
+    </div>
+
+    <div id="ftc-harvest">
+        <h2>Current Address Information</h2>
+        <div class="form-group">
+            Connected Address
+            <p id="connectedAddress" style="text-align: right;"></p>
+            <br>
+            Your Roles
+            <p id="connectedAddressRoles" style="text-align: right;"></p>
+            <br>
+            Please, click refresh when you select another address in Metamask, or whenever you want to fetch your most recent data.
+            <br><br>
+            <div class=button-div>
+                <button class="btn-refreshAddress" id="button" type="button" data-id="13">Refresh</button>
+            </div>
+        </div>
+        <h2>Role Addition</h2>
+        <div class="form-group">
+            ID (address)
+            <br>
+            <input type="text" id="roleAddress" name="roleAddress" placeholder="Metamask-Ethereum address to be added the role" size="50"><br>
+            Select Role
+            <br>
+            <select id="selectRole" name="selectRole">
+                    <option value="Farmer">Farmer</option>
+                    <option value="Distributor">Distributor</option>
+                    <option value="Retailer">Retailer</option>
+                    <option value="Consumer">Consumer</option>
+            </select>
+            <br>
+            
+            <div class=button-div>
+                <button class="btn-addRoles" id="button" type="button" data-id="11">Add Role</button>
+            </div>
+            <p style="text-align: left;">* Please, note that the deployer of the contract has all roles.</p>
+        </div>
+        <div class=form-break></div>
+        <h2>Role Removal</h2>
+        <div class="form-group">
+            ID (address)
+            <br>
+            <input type="text" id="roleRenounceAddress" name="roleRenounceAddress" placeholder="Metamask-Ethereum address to be removed the role" size="50" disabled><br>
+            Select Role
+            <br>
+            <select id="selectRenounceRole" name="selectRenounceRole">
+                    <option value="Farmer">Farmer</option>
+                    <option value="Distributor">Distributor</option>
+                    <option value="Retailer">Retailer</option>
+                    <option value="Consumer">Consumer</option>
+            </select>
+            <br>
+            
+            <div class=button-div>
+                <button class="btn-renounceRoles" id="button" type="button" data-id="12">Renounce Role</button>
+            </div>
+            <p style="text-align: left;">* Please, note that you can only renounce to your own roles.</p>
+        </div>
+        <div class=form-break></div>
+        <h2>Product Overview</h2>
+        <div class="form-group">
+            SKU
+            <br>
+            <input class="input-field" type="number" id="sku" name="sku" placeholder="Stock Keeping Unit (SKU)" disabled><br>
+            UPC
+            <br>
+            <input type="number" id="upc" name="upc" placeholder="Universal Product Code (UPC)"><br>
+            Current Owner ID
+            <br>
+            <input type="text" id="ownerID" name="ownerID" placeholder="Metamask-Ethereum address of the current owner" size="50" disabled><br>
+            Item State
+            <br>
+            <input type="text" id="itemState" name="itemState" placeholder="Product State" size="50" disabled><br>
+            <div class=button-div>
+                <button class="btn-fetchOne" id="button" type="button" data-id="9">Fetch Data</button>
+            </div>
+            <p style="text-align: left;">* Please, note that to overview a product's data, you must enter its UPC, and then press the button.</p>
+        </div>
+        <div class=form-break></div>
+        <h2>Farm Details</h2>
+        <div class="form-group">
+            Farmer ID (connected address at harvesting time)
+            <br>
+            <input type="text" id="originFarmerID" name="originFarmerID" placeholder="Metamask-Ethereum address of the Farmer"
+                size="50" disabled><br>
+            Farm Name (e.g. John Doe)
+            <br>
+            <input type="text" id="originFarmName" name="originFarmName" placeholder="Farmer Name"><br>
+            Farm Information (e.g. Yarra Valley)
+            <br>
+            <input type="text" id="originFarmInformation" name="originFarmInformation" placeholder="Farmer Information"><br>
+            Farm Latitude (e.g. -38.239770)
+            <br>
+            <input type="text" id="originFarmLatitude" name="originFarmLatitude" placeholder="Farm Latitude"><br>
+            Farm Longitude (e.g. 144.341490)
+            <br>
+            <input type="text" id="originFarmLongitude" name="originFarmLongitude" placeholder="Farm Longitude"><br>
+            <br>
+            <button class="btn-harvest" id="button" type="button" data-id="1">Harvest</button>
+            <button class="btn-process" id="button" type="button" data-id="2">Process</button>
+            <button class="btn-pack" id="button" type="button" data-id="3">Pack</button>
+            <button class="btn-forsale" id="button" type="button" data-id="4">ForSale</button>
+            <p style="text-align: left;">* Harvested stage: This is the first stage in the supply chain. Please, note that to mark a product as harvested you must be a farmer. In addition, you must provide the following data: UPC, farm name, information, latitude, and longitude, and product notes. The farmer ID is assumed to be the currently connected address.</p>
+            <p style="text-align: left;">* Processed stage: Please, note that to mark a product as processed, the product must be in the harvested stage, and you must be the farmer who harvested it. In addition, you must provide the product's UPC.</p>
+            <p style="text-align: left;">* Packed stage: Please, note that to mark a product as packed, the product must be in the processed stage, and you must be the farmer who processed it. In addition, you must provide the product's UPC.</p>
+            <p style="text-align: left;">* For Sale stage: Please, note that to mark a product as for sale, the product must be in the packed stage, and you must be the farmer who packed it. In addition, you must provide the product's UPC, and the price you want to sell the product for.</p>
+        </div>
+        <div class=form-break></div>
+        <h2>Product Details</h2>
+        <div class="form-group">
+            Product Notes (e.g. Best beans for Espresso)
+            <br>
+            <input type="text" id="productNotes" name="productNotes" placeholder="Product Notes" size="60"><br>
+            Product Price
+            <br>
+            <input type="number" id="productPrice" name="productPrice" placeholder="Product Price"> Gwei<br>
+            Distributor ID
+            <br>
+            <input type="text" id="distributorID" name="distributorID" placeholder="Metamask-Ethereum address of the Distributor"
+                size="50" disabled>
+            <br>
+            Retailer ID
+            <br>
+            <input type="text" id="retailerID" name="retailerID" placeholder="Metamask-Ethereum address of the Retailer"
+                size="50" disabled><br>
+            Consumer ID
+            <br>
+            <input type="text" id="consumerID" name="consumerID" placeholder="Metamask-Ethereum address of the Consumer"
+                size="50" disabled><br>
+            <br>
+            <button class="btn-buy" id="button" type="button" data-id="5">Buy</button>
+            <button class="btn-ship" id="button" type="button" data-id="6">Ship</button>
+            <button class="btn-receive" id="button" type="button" data-id="7">Receive</button>
+            <button class="btn-purchase" id="button" type="button" data-id="8">Purchase</button>
+            <p style="text-align: left;">* Sold (buy) stage: Please, note that to mark a product as sold, you must be a distributor, the product must be in the for sale stage,and the paid amount must be sufficient to cover the price. In addition, you must provide the product's UPC. The distributor ID is assumed to be the currently connected address.</p>
+            <p style="text-align: left;">* Shipped stage: Please, note that to mark a product as shipped, the product must be in the sold stage, and you must be the distributor who bought it. In addition, you must provide the product's UPC.</p>
+            <p style="text-align: left;">* Received stage: Please, note that to mark a product as received, the product must be in the shipped stage, and you must be a retailer. In addition, you must provide the product's UPC. The retailer ID is assumed to be the currently connected address.</p>
+            <p style="text-align: left;">* Purchased stage: Please, note that to mark a product as purchased, the product must be in the received stage, and you must be a consumer. In addition, you must provide the product's UPC. The consumer ID is assumed to be the currently connected address.</p>
+        </div>
+        <div class=form-break></div>
+        <hr>
+    </div>
+
+    <h2>Transaction History<span id="ftc-history"></span></h2>
+    <div>
+        <ul id="ftc-events">
+            <!-- Events will appear here from app.js -->
+        </ul>
+        <br>
+        <hr>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- <script src="js/web3.min.js"></script> -->
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
