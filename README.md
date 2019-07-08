@@ -158,10 +158,15 @@ The procedure to obtain functional a copy of the project on your local machine s
         * Here you can see an example transaction history where a product has been harvested, processed, packed, sold, bought, and shipped by the deployer of the contract. As you know, the deployer of the contract has all roles. To make things a little bit more interesting, after that, the deployer of the contract adds another account address as retailer. This account address then receives (marks as received) the product as a retailer. In the last stage, the deployer of the contract purchases the product and the life cycle is then completed.
         ![TransactionHistory](/Screenshots/TransactionHistory.png)
 * Finally, if you want to deploy the smart contract to a public test network such as Rinkeby by yourself, you have to go back to the terminal shell window. At the root directory of this project, where the project files reside, type the command `truffle migrate --reset --network rinkeby`.
+
 ![RinkebyShellWindow](/Screenshots/RinkebyShellWindow.png)
+
 After successful deployment, the contract address hash is: 0x0aa5234ea0992000cb1836d4063993c775b26c63. It can be accessed at Etherscan at https://rinkeby.etherscan.io/address/0x0aa5234ea0992000cb1836d4063993c775b26c63. 
+
 ![RinkebyContract](/Screenshots/RinkebyContract.png)
+
 The transaction hash for contract creation is: 0x1e527e482ec7f4da662263ceffd0bd6bbdd3a0ed2470ca5cf97c9c18143e0f25.
+
 ![RinkebyTransaction](/Screenshots/RinkebyTransaction.png)
 
 ## Contributing
