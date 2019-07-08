@@ -113,7 +113,7 @@ The eleven tests covered are:
 
 This is the fourth step of the project, where the smart contract has been deployed to the Rinkeby public test network.
 
-After successful deployment, the contract address hash is: 0x0aa5234ea0992000cb1836d4063993c775b26c63. It can be accessed on Etherscan at https://rinkeby.etherscan.io/address/0x0aa5234ea0992000cb1836d4063993c775b26c63. The transaction hash for contract creation is: 0x1e527e482ec7f4da662263ceffd0bd6bbdd3a0ed2470ca5cf97c9c18143e0f25.
+After successful deployment, the contract address hash is: 0x0aa5234ea0992000cb1836d4063993c775b26c63. It can be accessed at Etherscan at https://rinkeby.etherscan.io/address/0x0aa5234ea0992000cb1836d4063993c775b26c63. The transaction hash for contract creation is: 0x1e527e482ec7f4da662263ceffd0bd6bbdd3a0ed2470ca5cf97c9c18143e0f25.
 
 ### Step 5  Modifying client code to interact with smart contracts
 
@@ -127,14 +127,14 @@ The procedure to obtain functional a copy of the project on your local machine s
 * Secondly, type `npm install` on a terminal shell window so that all required npm packages are installed.
 * Thirdly, you have to set up a *secret-parameters.js* file at the root folder of this project, where you are located just now. This is a secret parameters file where you will have to type your *Metamask seed (mnemonic)*, and your *Infura PROJECT ID (infuraKey)*. For convenience, one such file has been provided for you, so that you just have to fill out the data into the corresponding fields.
 * In the fourth place, to run the supporting unit tests on Ganache, you have to:
-    * Run Ganache by typing `ganache-cli`. This will start Ganache on *http://127.0.0.1:8545/*.
+    * Run Ganache by typing `ganache-cli`. This will start Ganache at *http://127.0.0.1:8545/*.
     * Open a new terminal shell window, cd to the same root folder of the project, and type `truffle compile` to compile the smart contracts. Once the contracts have been successfully compiled, type `truffle migrate --reset`, to deploy them to Ganache.
     * Now, you can run `truffle test` to run all eleven supporting unit tests.
     ![CompileMigrateTest](/Screenshots/CompileMigrateTest.png)
 * In the fifth place, the following steps show you an easy way to make use of the front end of the Dapp:
     * Set the *http://127.0.0.1:8545/* address in Metamask so that the Ganache private network can be accessed. 
     * Import between one and five accounts from the list shown by *Ganache* into your Metamask. At least one account should be imported, the first one, which deployed the contract. This account has all four roles in the supply chain: farmer, distributor, retailer, and consumer. 
-    * Once this has been done, open a new terminal shell window, cd to the same root folder of the project, and then type `npm run dev`. This last command starts the *lite-server* on *http://localhost:3000*. If that is not done automatically for you, open that address in your browser to access the front end of the Dapp.
+    * Once this has been done, open a new terminal shell window, cd to the same root folder of the project, and then type `npm run dev`. This last command starts the *lite-server* at *http://localhost:3000*. If that is not done automatically for you, open that address in your browser to access the front end of the Dapp.
     * The currently connected Metamask account address is shown in the first section of the front-end page (*Current Address Information*). Click now *Refresh* to view your most recent data within this section, or otherwise whenever you change your currently selected Metamask account address.
     ![CurrentAddressInfo](/Screenshots/CurrentAddressInfo.png)
     * Although you could manage the whole life cycle of the product throughout the supply chain with just the account address that deployed the contract, you can also assign/remove roles to/from other accounts. This way, you could use those accounts as actors as well. To this end, the next two sections of the front-end page (*Role Addition* and *Role Removal*) allow you to do just that.
@@ -161,7 +161,7 @@ The procedure to obtain functional a copy of the project on your local machine s
 
 ![RinkebyShellWindow](/Screenshots/RinkebyShellWindow.png)
 
-After successful deployment, the contract address hash is: 0x0aa5234ea0992000cb1836d4063993c775b26c63. It can be accessed at Etherscan at https://rinkeby.etherscan.io/address/0x0aa5234ea0992000cb1836d4063993c775b26c63. 
+After successful deployment, in my project, the contract address hash is: 0x0aa5234ea0992000cb1836d4063993c775b26c63. It can be accessed at Etherscan at https://rinkeby.etherscan.io/address/0x0aa5234ea0992000cb1836d4063993c775b26c63. 
 
 ![RinkebyContract](/Screenshots/RinkebyContract.png)
 
