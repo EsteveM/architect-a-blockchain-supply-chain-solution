@@ -73,7 +73,7 @@ This is the second step of the project, and is made up of four different parts:
 
 #### Step 2.1	Defining and implementing interfaces
 
-The first requirement of the second step of this project focuses in the inheritance structure of the smart contracts. This has been established like this:
+The first requirement of the second step of this project focuses on the inheritance structure of the smart contracts. This has been established like this:
 
 * The contracts FarmerRole, DistributorRole, RetailerRole, and ConsumerRole, import the library Roles. In this way, they can access functionality provided by (they inherit from) Roles.
 * The contract SupplyChain inherits from FarmerRole, DistributorRole, RetailerRole, and ConsumerRole. That means that all functionality within the Role contracts can be used within (is inherited by) SupplyChain. 
@@ -121,7 +121,7 @@ In this last step of the project, a front-end is developed that makes it possibl
 
 ## Getting Started
 
-The procedure to obtain functional a copy of the project on your local machine so that you can further develop and/or test it is explained in this section. It is assumed that you have already installed Truffle, ganache-cli, and the [Metamask](https://metamask.io/) extension in your browser. These are the steps to be followed:
+The procedure to obtain functional a copy of the project on your local machine so that you can further develop and/or test it is explained in this section. It is assumed that you have already installed [Truffle](https://www.trufflesuite.com/), [Ganache CLI](https://github.com/trufflesuite/ganache-cli), and the [Metamask](https://metamask.io/) extension in your browser. These are the steps to be followed:
 
 * Firstly, you have to download/clone the project files from this repository onto your local machine. Then, cd into the root folder where the project files are located.
 * Secondly, type `npm install` on a terminal shell window so that all required npm packages are installed.
@@ -132,16 +132,18 @@ The procedure to obtain functional a copy of the project on your local machine s
     * Now, you can run `truffle test` to run all eleven supporting unit tests.
     ![CompileMigrateTest](/Screenshots/CompileMigrateTest.png)
 * In the fifth place, the following steps show you an easy way to make use of the front end of the Dapp:
-    * Set the *http://127.0.0.1:8545/* address in [Metamask](https://metamask.io/) so that the Ganache private network can be accessed. 
-    * Import between one and five accounts from the list shown by *Ganache* into your [Metamask](https://metamask.io/). At least one account should be imported, the first one, which deployed the contract. This account has all four roles: farmer, distributor, retailer, and consumer. 
+    * Set the *http://127.0.0.1:8545/* address in Metamask so that the Ganache private network can be accessed. 
+    * Import between one and five accounts from the list shown by *Ganache* into your Metamask. At least one account should be imported, the first one, which deployed the contract. This account has all four roles in the supply chain: farmer, distributor, retailer, and consumer. 
     * Once this has been done, open a new terminal shell window, cd to the same root folder of the project, and then type `npm run dev`. This last command starts the *lite-server* on *http://localhost:3000*. If that is not done automatically for you, open that address in your browser to access the front end of the Dapp.
-    * The currently connected Metamask account address is shown in the first section of the front-end page. Click now *Refresh* to view your most recent data within the *Current Address Information* folder, or otherwise whenever you change your currently selected Metamask account address.
+    * The currently connected Metamask account address is shown in the first section of the front-end page (*Current Address Information*). Click now *Refresh* to view your most recent data within this section, or otherwise whenever you change your currently selected Metamask account address.
     ![CurrentAddressInfo](/Screenshots/CurrentAddressInfo.png)
-    * Although you could manage the whole life cycle of the product throughout the supply chain with just the account address that deployed the contract, you can also assign/remove roles to/from other accounts. This way, you could use those accounts as actors as well. To this end, the next two sections of the front-end page allow you to do just that.
+    * Although you could manage the whole life cycle of the product throughout the supply chain with just the account address that deployed the contract, you can also assign/remove roles to/from other accounts. This way, you could use those accounts as actors as well. To this end, the next two sections of the front-end page (*Role Addition* and *Role Removal*) allow you to do just that.
     ![AddRemoveRoles](/Screenshots/AddRemoveRoles.png)
     * Once you have your Metamask account selected, you can manage the product throughout the different supply chain stages:
-        * First of all, you must provide the system with the UPC of the product to be fetched, or otherwise introduced into the supply chain for the first time. This can be accomplished in the fourth section of the front-end page. Afterwards, click *Fetch Data*. Note that you do not have to provide SKU, current owner ID,and item state, as those are managed by the system without user intervention.
+        * First of all, you must provide the system with the UPC of the product to be fetched, or otherwise introduced into the supply chain for the first time. This can be accomplished in the fourth section of the front-end page (*Product Overview*). Afterwards, click *Fetch Data*. Note that you do not have to provide SKU, current owner ID, and item state, as those are managed by the system without user intervention.
+        In the image below, the UPC is entered:
         ![ProductOverviewInfo](/Screenshots/ProductOverviewInfo.png)
+        Then, the *Fetch Data* button is clicked:
         ![ProductOverviewInfo2](/Screenshots/ProductOverviewInfo2.png)
         * *Harvested stage*: Once the product has been selected, the first supply chain stage can be attempted. Note that to mark a product as harvested you must be a farmer. In addition, you must provide the following data: UPC, farm name, information, latitude, and longitude, and product notes. The farmer ID is assumed to be the currently connected address. You will find example data to fill the form fields out in the form itself. Note that you do not have to provide the farmer ID, as it is managed by the system without user intervention. Once the corresponding fields have been filled out, just click *Harvest*.
         * *Processed stage*: Note that to mark a product as processed, the product must be in the harvested stage, and you must be the farmer who harvested it. In addition, you must provide the product's UPC. At this point, it is enough for you to just click *Process*.
@@ -153,14 +155,14 @@ The procedure to obtain functional a copy of the project on your local machine s
         * *Received stage*: Please, note that to mark a product as received, the product must be in the shipped stage, and you must be a retailer. In addition, you must provide the product's UPC. The retailer ID is assumed to be the currently connected address. At this point, it is enough for you to just click *Receive*.
         * *Purchased stage*: Please, note that to mark a product as purchased, the product must be in the received stage, and you must be a consumer. In addition, you must provide the product's UPC. The consumer ID is assumed to be the currently connected address. At this point, it is enough for you to just click *Purchase*.
         ![FinalFourStages](/Screenshots/FinalFourStages.png)
-        * Here you can see an example transaction history where a product has been harvested, processed, packed, sold, and bought by the deployer of the contract. As you know, the deployer of the contract has all roles. To make things a little bit more interesting, after that, the deployer of the contract adds another account address as retailer. This account address then receives (marks as received) the product as a retailer. In the last stage, the deployer of the contract purchases the product and the life cycle is then complete.
+        * Here you can see an example transaction history where a product has been harvested, processed, packed, sold, bought, and shipped by the deployer of the contract. As you know, the deployer of the contract has all roles. To make things a little bit more interesting, after that, the deployer of the contract adds another account address as retailer. This account address then receives (marks as received) the product as a retailer. In the last stage, the deployer of the contract purchases the product and the life cycle is then completed.
         ![TransactionHistory](/Screenshots/TransactionHistory.png)
-* Finally, if you want to deploy the smart contract to the public test network Rinkeby by yourself, you have to:
-    * Back on the terminal shell window, at the root directory of this project, where the project files reside,type the command `truffle migrate --reset --network rinkeby`.
-    ![RinkebyShellWindow](/Screenshots/RinkebyShellWindow.png)
-    After successful deployment, the contract address hash is: 0x0aa5234ea0992000cb1836d4063993c775b26c63. It can be accessed on Etherscan at https://rinkeby.etherscan.io/address/0x0aa5234ea0992000cb1836d4063993c775b26c63. The transaction hash for contract creation is: 0x1e527e482ec7f4da662263ceffd0bd6bbdd3a0ed2470ca5cf97c9c18143e0f25.
-    ![RinkebyContract](/Screenshots/RinkebyContract.png)
-    ![RinkebyTransaction](/Screenshots/RinkebyTransaction.png)
+* Finally, if you want to deploy the smart contract to a public test network such as Rinkeby by yourself, you have to go back to the terminal shell window. At the root directory of this project, where the project files reside, type the command `truffle migrate --reset --network rinkeby`.
+![RinkebyShellWindow](/Screenshots/RinkebyShellWindow.png)
+After successful deployment, the contract address hash is: 0x0aa5234ea0992000cb1836d4063993c775b26c63. It can be accessed at Etherscan at https://rinkeby.etherscan.io/address/0x0aa5234ea0992000cb1836d4063993c775b26c63. 
+![RinkebyContract](/Screenshots/RinkebyContract.png)
+The transaction hash for contract creation is: 0x1e527e482ec7f4da662263ceffd0bd6bbdd3a0ed2470ca5cf97c9c18143e0f25.
+![RinkebyTransaction](/Screenshots/RinkebyTransaction.png)
 
 ## Contributing
 
